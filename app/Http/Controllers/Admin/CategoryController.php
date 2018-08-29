@@ -56,5 +56,10 @@
 			Category::find($id)->update($req->all());
 			return redirect()->route('category')->with('success','Cập nhật danh mục thành công');
 		}
+
+		public function delete($id){
+			Category::destroy($id);
+			return redirect()->back()->with('success','Xóa danh mục thành công');
+		}
 	}
  ?>

@@ -5,4 +5,5 @@
 	Route::post('/category/addCate','CategoryController@create')->name('addCate');
 	Route::get('/category/editCate/{id}','CategoryController@edit')->name('editCate');
 	Route::post('/category/editCate/{id}','CategoryController@postedit')->name('editCate');
+	Route::get('/category/deleteCate/{id}','CategoryController@delete')->name('deleteCate');
  ?>

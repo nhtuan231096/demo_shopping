@@ -18,6 +18,12 @@
 		<div class="panel-body">
 			<h2>Danh sách sản phẩm</h2>
 			<table class="table table-hover">
+				@if(Session::has('success'))
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>{{Session::get('success')}}</strong>
+				</div>
+				@endif
 				<thead>
 					<tr>
 						<th>ID</th>
@@ -39,7 +45,7 @@
 						<td>{{$pro->id}}</td>
 						<td>{{$pro->name}}</td>
 						<td>{{$pro->slug}}</td>
-						<td>{{$pro->image}}</td>
+						<td><img width="50px" src="{{url('uploads/product')}}/{{$pro->image}}" alt=""></td>
 						<td>{{number_format($pro->price)}}đ</td>
 						<td>{{number_format($pro->sale_price)}}đ</td>
 						<td>{!!$pro->content!!}</td>
@@ -53,8 +59,8 @@
 						<td>{{$pro->category->name}}</td>
 						<td>{{$pro->created_at}}</td>
 						<td>
-							<a class="fa fa-edit btn btn-xs btn-default" href=""></a>
-							<a class="fa fa-trash btn btn-xs btn-danger" href=""></a>
+							<a class="fa fa-edit btn btn-xs btn-default" href="{{route('editPro',['id'=>$pro->id])}}"></a>
+							<a class="fa fa-trash btn btn-xs btn-danger" onclick="return confirm('Bạn có muốn xóa không??')" href="{{route('deletePro',['id'=>$pro->id])}}"></a>
 						</td>
 					</tr>
 					@endforeach

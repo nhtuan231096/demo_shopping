@@ -44,7 +44,7 @@
 						<td>{{$cate->created_at}}</td>
 						<td class="text-right">
 							<a class="fa fa-edit btn" href="{{route('editCate',['id'=>$cate->id])}}"></a>
-							<a class="fa fa-trash btn" href=""></a>
+							<a class="fa fa-trash btn" onclick="return confirm('Bạn có muốn xóa không??')" href="{{route('deleteCate',['id'=>$cate->id])}}"></a>
 						</td>
 					</tr>
 					@endforeach
