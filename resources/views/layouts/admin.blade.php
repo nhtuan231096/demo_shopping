@@ -242,6 +242,14 @@
             <li><a href="{{route('addUser')}}"><i class="fa fa-circle-o"></i> Thêm mới tài khoản</a></li>
           </ul>
         </li>
+        <li>
+          <a href="{{route('slider')}}">
+            <i class="fa fa-th"></i> <span>Slider</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green"></small>
+            </span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

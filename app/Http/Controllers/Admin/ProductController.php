@@ -47,6 +47,7 @@
 			$req->merge(['image'=>$img]);
 			// dd($req->all());
 			Product::create($req->all());
+			return redirect()->route('listPros')->with('success','Thêm sản phẩm thành công');
 		}
 	}
  ?>

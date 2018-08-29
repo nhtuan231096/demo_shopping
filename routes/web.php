@@ -22,6 +22,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'auth'],funct
 	include 'product.php';
 	// route user
 	include 'user.php';
+	// route slider
+	include 'slider.php';
 });
 // route đăng nhập
 Route::get('admin/login-admin.html','Admin\AdminController@login')->name('login');
@@ -33,6 +35,11 @@ Route::get('admin/signout.html','Admin\AdminController@signout')->name('signout'
 
 // Route::get('admin/logind-admin.html','Admin\AdminController@a')->name('a');
 // Route::post('admin/logind-admin.html','Admin\AdminController@pa')->name('a');
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// route home
+Route::get('/','HomeController@index');
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
