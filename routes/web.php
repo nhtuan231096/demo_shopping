@@ -37,7 +37,9 @@ Route::get('admin/signout.html','Admin\AdminController@signout')->name('signout'
 // Route::post('admin/logind-admin.html','Admin\AdminController@pa')->name('a');
 
 // route home
-Route::get('/','HomeController@index');
+Route::get('/','HomeController@index')->name('home');
+Route::get('/about.html','HomeController@about')->name('about');
+Route::get('/shopnow.html','HomeController@shopnow')->name('shopnow');
 
 
 // Route::get('/', function () {

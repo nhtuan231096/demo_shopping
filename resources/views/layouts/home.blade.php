@@ -43,17 +43,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<div class="header_agileits">
 				<div class="logo">
-					<h1><a class="navbar-brand" href="index.html"><span>Downy</span> <i>Shoes</i></a></h1>
+					<h1><a class="at navbar-brand" href="{{route('home')}}"><span>XP</span> <i>Shoes</i></a></h1>
 				</div>
 				<div class="overlay overlay-contentpush">
 					<button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
 
 					<nav>
 						<ul>
-							<li><a href="index.html" class="active">Home</a></li>
-							<li><a href="about.html">About</a></li>
+							<li><a href="{{route('home')}}" class="active">Home</a></li>
+							<li><a href="{{route('about')}}">About</a></li>
 							<li><a href="404.html">Team</a></li>
-							<li><a href="shop.html">Shop Now</a></li>
+							<li><a href="{{route('shopnow')}}">Shop Now</a></li>
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</nav>
@@ -102,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--//banner -->
 
 	<!-- /newsletter-->
-	yield('news')
+	@yield('news')
 	<!-- //newsletter-->
 	<!-- footer -->
 	<div class="footer_agileinfo_w3">
@@ -142,8 +142,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-4 sign-gd">
 						<h4>Our <span>Information</span> </h4>
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
+							<li><a href="{{route('home')}}">Home</a></li>
+							<li><a href="{{route('about')}}">About</a></li>
 							<li><a href="404.html">Services</a></li>
 							<li><a href="404.html">Short Codes</a></li>
 							<li><a href="contact.html">Contact</a></li>

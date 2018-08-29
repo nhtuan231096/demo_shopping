@@ -68,7 +68,9 @@ a:focus {
     outline: none;
     text-decoration: none;
 }
-
+.at{
+	margin-top: 20px;
+}
 /*-- banner --*/
 .wrapper_top_w3layouts {
     position: relative;
@@ -477,7 +479,8 @@ li.dropdown.act a.w3_icons_act {
 }
 
 .banner-top2 {
-	background: url(../images/banner3.jpg) no-repeat 0px 0px;
+	/*background: url(../images/banner3.jpg) no-repeat 0px 0px;*/
+	position: relative;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -497,6 +500,12 @@ li.dropdown.act a.w3_icons_act {
 }
 
 .banner-info-wthree   {
+	position: absolute;
+	top:20%;
+	left:50%;
+	transform: translate(-50%,-20%);
+	margin: auto;
+	z-index:1;
     text-align: center;
     padding: 17em 0em 0 0em;
 }
@@ -1011,6 +1020,7 @@ ul.social-nav.model-3d-0.footer-social.social.two {
 }
 
 .sign-gd h4,.sign-gd-two h4 {
+	background:url(../images/ab.jpg);
     color: #fff;
     font-size: 1.2em;
     margin-bottom: 25px;
