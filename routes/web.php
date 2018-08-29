@@ -18,6 +18,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'auth'],funct
 
 	// route category
 	include 'category.php';
+	// route product
+	include 'product.php';
+	// route user
+	include 'user.php';
 });
 // route đăng nhập
 Route::get('admin/login-admin.html','Admin\AdminController@login')->name('login');

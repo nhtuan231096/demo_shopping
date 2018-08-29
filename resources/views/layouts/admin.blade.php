@@ -201,29 +201,47 @@
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu" data-widget="tree">    
+        <li>
+          <a href="{{route('HomeAdmin')}}">
+            <i class="fa fa-dashboard"></i> <span>Bảng điều khiển</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green"></small>
+            </span>
+          </a>
+        </li>   
+        <li>
+          <a href="{{route('category')}}">
+            <i class="fa fa-th"></i> <span>Danh mục</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green"></small>
+            </span>
+          </a>
+        </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-th"></i> <span>Sản phẩm</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <li><a href="{{route('listPros')}}"><i class="fa fa-circle-o"></i>Danh sách sản phẩm</a></li>
+            <li><a href="{{route('addPro')}}"><i class="fa fa-circle-o"></i> Thêm mới sản phẩm</a></li>
           </ul>
         </li>
-        
-        <li>
-          <a href="{{route('category')}}">
-            <i class="fa fa-th"></i> <span>Category</span>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-th"></i> <span>Tài khoản</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">Hot</small>
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('user')}}"><i class="fa fa-circle-o"></i>Danh sách tài khoản</a></li>
+            <li><a href="{{route('addUser')}}"><i class="fa fa-circle-o"></i> Thêm mới tài khoản</a></li>
+          </ul>
         </li>
-        
       </ul>
     </section>
     <!-- /.sidebar -->
