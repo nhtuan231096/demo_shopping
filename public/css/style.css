@@ -459,7 +459,7 @@ li.dropdown.act a.w3_icons_act {
 /*-- banner-top --*/
 
 .banner-top {
-	background: url(../images/banner1.jpg) no-repeat 0px 0px;
+	/*background: url(../images/banner1.jpg) no-repeat 0px 0px;*/
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -467,9 +467,8 @@ li.dropdown.act a.w3_icons_act {
 	-moz-background-size: cover;
 	min-height:750px;
 }
-
 .banner-top1 {
-	background: url(../images/banner2.jpg) no-repeat 0px 0px;
+	/*background: url(../images/banner2.jpg) no-repeat 0px 0px;*/
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;

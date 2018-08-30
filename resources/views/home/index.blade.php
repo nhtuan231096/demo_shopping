@@ -6,7 +6,7 @@
 		<ul class="rslides callbacks callbacks1" id="slider4">
 			@foreach($sliders as $s)
 			<li>
-				<div class="banner-top2">
+				<div class="banner-top">
 					<img src="{{url('uploads/slide')}}/{{$s->image}}" alt="">
 					<div class="banner-info-wthree">
 						<h3>{{$s->caption_1}}</h3>

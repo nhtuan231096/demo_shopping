@@ -40,6 +40,8 @@ Route::get('admin/signout.html','Admin\AdminController@signout')->name('signout'
 Route::get('/','HomeController@index')->name('home');
 Route::get('/about.html','HomeController@about')->name('about');
 Route::get('/shopnow.html','HomeController@shopnow')->name('shopnow');
+Route::get('/quickView.html/{id}.html','HomeController@quickView')->name('quickView');
+Route::get('/addCart.html/{id}.html','HomeController@addCart')->name('addCart');
 
 
 // Route::get('/', function () {
