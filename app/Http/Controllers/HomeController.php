@@ -2,7 +2,7 @@
 	namespace App\Http\Controllers;
 	use App\Models\Slide;
 	use App\Models\Product;
-	use App\Models\Cart;
+	use App\Carts\Cart;
 	/**
 	 * 
 	 */
@@ -33,13 +33,26 @@
 			]);
 		}
 		public function addCart($id,Cart $cart){
+
 			$model=Product::find($id);
 			if ($model) {
-				$cart->add();
+				$cart->add($model);
+				return redirect()->route('view_cart')->with('success','Them san pham thanh cong');
 			}
 			else{
 				return view('error.404');
 			}
+				
+		}
+
+		public function view_cart(){
+			return view('home.viewCart',[
+				'cart'=>new Cart()
+			]);
+		}
+		public function delete($id,Cart $cart){
+			$cart->delete($id);
+			return redirect()->back()->with('success','xóa thành công');
 		}
 
 	}

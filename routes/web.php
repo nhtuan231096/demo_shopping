@@ -41,7 +41,9 @@ Route::get('/','HomeController@index')->name('home');
 Route::get('/about.html','HomeController@about')->name('about');
 Route::get('/shopnow.html','HomeController@shopnow')->name('shopnow');
 Route::get('/quickView.html/{id}.html','HomeController@quickView')->name('quickView');
-Route::get('/addCart.html/{id}.html','HomeController@addCart')->name('addCart');
+Route::get('/add-cart/{id}','HomeController@addCart')->name('addCart');
+Route::get('/view_cart','HomeController@view_cart')->name('view_cart');
+Route::get('/delete_cart/{id}','HomeController@delete')->name('delete_cart');
 
 
 // Route::get('/', function () {
