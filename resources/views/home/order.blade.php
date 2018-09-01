@@ -30,57 +30,61 @@
 	<!-- //banner_inner -->
 </div>
 <div class="container">
-	@if($cart->total_qty>0)
-	<div class="row">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Sản phẩm</th>
-					<th>Số lượng</th>
-					<th>Tên sản phẩm</th>
-					<th>Giá</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($cart->items as $k => $c)
-				<tr>
-					<td><img width="100px" src="{{url('uploads/product')}}/{{$c['image']}}" alt=""></td>
-					<td>
-						<form action="{{route('update_cart',['id'=>$c['id']])}}" method="GET">
-							<input type="text" name="qty" value="{{$c['qty']}}">
-							<input type="submit" value="Cập nhật">
-						</form>
-					</td>
-					<td>{{$c['name']}}</td>
-					<td>{{number_format($c['price'])}} đ</td>
-					<td>
-						<a class="fa fa-remove" href="{{route('delete_cart',['id'=>$c['id']])}}"></a>
-					</td>
-				</tr>
-				@endforeach
-			</tbody>
-		</table>
-		<div class="jumbotron text-center">
+	@if(Auth::check())
+		@if($cart->total_qty()>0)
+		<div class="jumbotron">
 			<div class="container">
-				<h2>Tổng tiền: {{number_format($cart->total_amount)}}</h2>
-				<p>
-					<a class="btn btn-lg btn-danger" href="{{route('clear_cart')}}">Hủy giỏ hàng</a>
-					<a class="btn btn-lg btn-primary" href="">Tiếp tục mua hàng</a>
-					<a class="btn btn-lg btn-success" href="{{route('order')}}">Tiến hành thanh toán</a>
-				</p>
+				<h2>Order shopping</h2>
+			<p>
+				<strong>Total: </strong> {{number_format($cart->total_amount)}}đ
+			</p>
+			<form action="" method="POST" role="form">
+				<div class="form-group">
+					<label for="">Tên</label>
+					<input type="text" class="form-control" name="name" value="{{Auth::user()->name}}" placeholder="Input field">
+				</div>
+				<div class="form-group">
+					<label for="">Email</label>
+					<input type="text" class="form-control" name="email" value="{{Auth::user()->email}}" placeholder="Input field">
+				</div>
+				<div class="form-group">
+					<label for="">Phương thức thanh toán</label>
+					<select name="payment_method" id="input" class="form-control">
+						<option value="1">Thanh toán trực tiếp</option>
+						<option value="2">Thanh toán online</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="">Phương thức giao hàng</label>
+					<select name="shipping_method" id="input" class="form-control">
+						<option value="1">Giao hàng tiết kiệm</option>
+						<option value="2">Chuyển phát nhanh</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="">Địa chỉ</label>
+					<input class="form-control" type="text" name="address" placeholder="Nhập địa chỉ">
+				</div>
+				<div class="form-group">
+					<label for="">Điện thoại</label>
+					<input class="form-control" type="text" name="phone" placeholder="Nhập số điện thoại">
+				</div>
+				@csrf
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
 			</div>
 		</div>
-	</div>
-	@else
-	<div class="jumbotron text-center">
-		<div class="container">
-			<h2>Chưa có sản phẩm nào trong giỏ hàng</h2>
-			<p ">
-				<a href="{{route('shopnow')}}" class="btn btn-primary btn-lg">Tiếp tục mua hàng</a>
-			</p>
+		@else
+		<div class="alert alert-warning">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<strong>Chưa có sản phẩm nào trong giỏ hàng, <a href="{{route('homeLogin')}}">tiếp tục mua hàng</a></strong>
 		</div>
-	</div>
+		@endif
+	@else
+		<div class="alert alert-warning">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<strong>Vui lòng <a href="{{route('homeLogin')}}">đăng nhập</a> để tiến hành đặt hàng</strong>
+		</div>
 	@endif
 </div>
 <ol class="carousel-indicators">

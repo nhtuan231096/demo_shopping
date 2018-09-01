@@ -2,13 +2,26 @@
 	namespace App\Http\Controllers;
 	use App\Models\Slide;
 	use App\Models\Product;
+	use App\Models\Category;
 	use App\Carts\Cart;
+	use Illuminate\Http\Request;
+	use View;
+	use Auth;
 	/**
 	 * 
 	 */
 	class HomeController extends Controller
 	{
-		
+		public function __construct(){
+			$this->middleware(function($request,$next){
+				View::share([
+				'category'=>Category::all(),
+				'cart'=>new Cart()
+			]);
+				return $next($request);
+			});
+			
+		}
 		function index()
 		{
 			$sliders=Slide::all();
@@ -16,6 +29,15 @@
 				'sliders'=>$sliders
 			]);
 		}
+		public function login(){
+			return view('home.login');
+		}
+		public function postlogin(Request $req){
+			if (Auth::attempt($req->only('email','password'))) {
+				return view('home.order');
+			}
+		}
+
 		public function about(){
 			return view('home.about');
 		}

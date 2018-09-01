@@ -30,58 +30,28 @@
 	<!-- //banner_inner -->
 </div>
 <div class="container">
-	@if($cart->total_qty>0)
-	<div class="row">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Sản phẩm</th>
-					<th>Số lượng</th>
-					<th>Tên sản phẩm</th>
-					<th>Giá</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($cart->items as $k => $c)
-				<tr>
-					<td><img width="100px" src="{{url('uploads/product')}}/{{$c['image']}}" alt=""></td>
-					<td>
-						<form action="{{route('update_cart',['id'=>$c['id']])}}" method="GET">
-							<input type="text" name="qty" value="{{$c['qty']}}">
-							<input type="submit" value="Cập nhật">
-						</form>
-					</td>
-					<td>{{$c['name']}}</td>
-					<td>{{number_format($c['price'])}} đ</td>
-					<td>
-						<a class="fa fa-remove" href="{{route('delete_cart',['id'=>$c['id']])}}"></a>
-					</td>
-				</tr>
-				@endforeach
-			</tbody>
-		</table>
-		<div class="jumbotron text-center">
-			<div class="container">
-				<h2>Tổng tiền: {{number_format($cart->total_amount)}}</h2>
-				<p>
-					<a class="btn btn-lg btn-danger" href="{{route('clear_cart')}}">Hủy giỏ hàng</a>
-					<a class="btn btn-lg btn-primary" href="">Tiếp tục mua hàng</a>
-					<a class="btn btn-lg btn-success" href="{{route('order')}}">Tiến hành thanh toán</a>
-				</p>
+	<div class="jumbotron">
+		<div class="container">
+			<h2>Đăng nhập</h2>
+			<div class="row">
+				<div class="col-md-6">
+					<form action="" method="POST" role="form">
+					
+						<div class="form-group">
+							<label for="">Email</label>
+							<input type="text" class="form-control" name="email" id="" placeholder="Nhập email">
+						</div>
+						<div class="form-group">
+							<label for="">Mật khẩu</label>
+							<input type="password" class="form-control" name="password" id="" placeholder="Nhập mật khẩu">
+						</div>
+						@csrf				
+						<button type="submit" class="btn btn-primary">Đăng nhập</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
-	@else
-	<div class="jumbotron text-center">
-		<div class="container">
-			<h2>Chưa có sản phẩm nào trong giỏ hàng</h2>
-			<p ">
-				<a href="{{route('shopnow')}}" class="btn btn-primary btn-lg">Tiếp tục mua hàng</a>
-			</p>
-		</div>
-	</div>
-	@endif
 </div>
 <ol class="carousel-indicators">
 	<li data-target="#myCarousel" data-slide-to="0" class=""></li>

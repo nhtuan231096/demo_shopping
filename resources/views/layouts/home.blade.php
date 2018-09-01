@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<form action="#" method="post" class="last">
 							<input type="hidden" name="cmd" value="_cart">
 							<input type="hidden" name="display" value="1">
-							<button class="top_shoe_cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+							<a class="top_shoe_cart btn btn-default btn-sm" href="{{route('view_cart')}}"><i class="fa fa-cart-arrow-down" aria-hidden="true">({{$cart->total_qty}})</i></button></a>
 						</form>
 					</div>
 
