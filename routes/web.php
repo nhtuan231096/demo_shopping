@@ -44,6 +44,8 @@ Route::get('/quickView.html/{id}.html','HomeController@quickView')->name('quickV
 Route::get('/add-cart/{id}','HomeController@addCart')->name('addCart');
 Route::get('/view_cart','HomeController@view_cart')->name('view_cart');
 Route::get('/delete_cart/{id}','HomeController@delete')->name('delete_cart');
+Route::get('/update_cart/{id}','HomeController@update')->name('update_cart');
+Route::get('/clear_cart','HomeController@clear')->name('clear_cart');
 
 
 // Route::get('/', function () {

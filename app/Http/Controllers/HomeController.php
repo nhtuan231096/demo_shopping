@@ -55,5 +55,14 @@
 			return redirect()->back()->with('success','xóa thành công');
 		}
 
+		public function update($id,Cart $cart){
+			$qty=request()->qty>0?request()->qty:1;
+			$cart->update($id,$qty);
+			return redirect()->back()->with('success','Cập nhật thành công');
+		}
+		public function clear(Cart $cart){
+			$cart->clear();
+			return redirect()->back()->with('success','Hủy giỏ hàng thành công');
+		}
 	}
  ?>

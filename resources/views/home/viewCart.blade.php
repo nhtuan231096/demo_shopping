@@ -35,7 +35,7 @@
 			<thead>
 				<tr>
 					<th>Sản phẩm</th>
-					<th>Số lượng</th>
+					<th>Số lượng({{$cart->total_qty}})</th>
 					<th>Tên sản phẩm</th>
 					<th>Giá</th>
 					<th></th>
@@ -45,7 +45,12 @@
 				@foreach($cart->items as $k => $c)
 				<tr>
 					<td><img width="100px" src="{{url('uploads/product')}}/{{$c['image']}}" alt=""></td>
-					<td>{{$c['qty']}}</td>
+					<td>
+						<form action="{{route('update_cart',['id'=>$c['id']])}}" method="GET">
+							<input type="text" name="qty" value="{{$c['qty']}}">
+							<input type="submit" value="Cập nhật">
+						</form>
+					</td>
 					<td>{{$c['name']}}</td>
 					<td>{{number_format($c['price'])}} đ</td>
 					<td>
@@ -55,6 +60,16 @@
 				@endforeach
 			</tbody>
 		</table>
+		<div class="jumbotron text-center">
+			<div class="container">
+				<h2>Tổng tiền: {{number_format($cart->total_amount)}}</h2>
+				<p>
+					<a class="btn btn-lg btn-danger" href="{{route('clear_cart')}}">Hủy giỏ hàng</a>
+					<a class="btn btn-lg btn-primary" href="">Tiếp tục mua hàng</a>
+					<a class="btn btn-lg btn-success" href="">Tiến hành thanh toán</a>
+				</p>
+			</div>
+		</div>
 	</div>
 </div>
 <ol class="carousel-indicators">
